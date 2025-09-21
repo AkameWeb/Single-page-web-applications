@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock that boby</title>
+<style>
+body{
+    background-color: #000;
+}
+.pixel-library {
+    font-family: 'PixelFont', monospace;
+    font-size: 30px;
+    color: #00ff00;
+    background: #000;
+    padding: 10px;
+    border: 2px solid #00ff00;
+
+    margin: 0 auto;
+    width: 450px;
+    text-align: center;
+
+}
+</style>
+<link href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/pixel-font@1.0.0/pixel-font.min.js"></script>
+</head>
+<body>
+<button id="toggleButton" class="pixel-library" onclick="toggleButton()">Start</button>
+<p id="myText" class="pixel-library"></p>
+
+<script>
+  
+    async function showTextSequence(texts) {
+        for (const item of texts) {
+            const element = document.getElementById("myText"); 
+            element.textContent = item.text;
+            console.log(item.text);
+            await new Promise(resolve => setTimeout(resolve, item.delay));
+           
+        }
+        showButton();
+    }
+  const textSequence = [{text: "I wanna da-", delay: 1720},
+  {text:".I wanna dance in the lights", delay: 1620}, 
+  {text:"I wanna ro...",delay: 1820},
+  {text: "I wanna rock your body",delay: 1900},
+  {text:"I wanna go...",delay: 1900},
+  {text:"I wanna go for a ride",delay: 1800},
+  {text:"Hop in the music and",delay: 1800},
+  {text:"rock your body right",delay: 1900},
+  {text:"Rock that body, ",delay: 1750},
+  {text:"come on come on, ",delay: 1450},
+  {text: "rock that body", delay: 1600},
+  {text:"(Rock that body)",delay: 1400},
+  {text:"Rock that body, ",delay: 1550},
+  {text:"come on come on, ",delay: 1450},
+  {text: "rock that body", delay: 1900},
+  {text: " ", delay: 600}
+  ];
+   function toggleButton() {
+        const button = document.getElementById('toggleButton');
+    
+        button.style.display = 'none';
+        
+        console.log('Start');
+        showTextSequence(textSequence);
+    }
+    function showButton() {
+    const button = document.getElementById('toggleButton');
+    
+    button.style.display = 'block';
+    
+}
+  
+</script>
+
+</body>
+</html>
